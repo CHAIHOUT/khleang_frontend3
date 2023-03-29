@@ -1,0 +1,112 @@
+.main{
+    width: 100%;
+    height: 745px;
+}
+
+/* Upload button */
+.file-card {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #edf2f7;
+    width: 150px;
+    height: 70px;
+    float: right;
+    margin: 20px 50px 0px 0;
+}
+.file-inputs {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    /* margin-bottom: 1.5em; */
+}
+.file-inputs input {
+    position: relative;
+    text-align: right;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+    height: 46px;
+    width: 100px;
+}
+.file-inputs button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 120px;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    background-color: #f55e30;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: background-color 0.4s;
+    box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.5);
+}
+.file-inputs button i {
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0.4em;
+    background-color: #fff;
+    color: #f55e30;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.8em;
+    font-size: 0.8em;
+}
+
+
+
+/* Foot */
+#upload_link{
+    background-color: #ECF0F1;
+    width: 100%;
+    height: 65px;
+    padding-left: 15px;
+}
+#upload_link a{
+    float: left;
+    text-decoration: none;
+    margin: 15px;
+    font-size: 18px;
+    opacity: 50%;
+}
+#upload_link a:hover{
+    color: blue;
+    border-bottom: 2px solid blue;
+    opacity: 100%;
+}
+
+.upload_foot{
+    width: 100%;
+    height: 575px;
+    background-color: #ECF0F1;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    overflow-x: auto;
+    grid-auto-rows: 70px;
+    grid-row-gap: 20px;
+}
+.upload_foot::-webkit-scrollbar{
+    width: 0;
+}
+#f{
+    width: 98%;
+    height: 95%;
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 7px;
+    border: 2px solid black;
+}

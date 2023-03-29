@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+}
+main{
+    background-color: 	#ECF0F1;
+    width: 100%;
+    height: 745px;
+}
+
+/* Head */
+
+.head_display{
+    margin: 0 auto;
+    width: 100%;
+    height: 70px;
+    background-color: #d3d9dd;  
+    padding: 20px;
+}
+#img_head{
+    width: 30px; 
+    height:30px;
+}
+#img_head_profile{
+    width: 40px; 
+    height:40px;
+}
+#logo_khleang{
+    float: left;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    margin-left: 400px;
+}
+#logo_khleang #img_head{
+    width: 35px;
+    height: 35px;
+}
+
+.icon{
+    padding: 0 30px;
+    float: left;
+}
+.icon2{
+    padding: 0 30px;
+    float: right;
+}
+
+/* Body */
+
+.box{
+    margin-top: 50px;
+    width: 100%;
+    height: 350px;
+}
+
+.row{
+    width: 100%;
+    height: 320px;
+    content: "";
+    clear: both;
+    /* overflow-y: scroll; */
+    display: table;
+}
+.row::-webkit-scrollbar{
+    width: 0;
+}
+.column{
+    width: 100%;
+    height: 100%;
+    padding-left: 190px;
+}
+.column a{
+    float: left;
+    margin: 0px 60px 0;
+    width: 200px;
+    height: 95%;
+    background-color:azure;
+    border-radius: 10px;
+    border: 3px;
+    text-decoration: none;
+    box-shadow: -3px -3px 7px #ffffff73, 3px 6px 5px rgb(60, 59, 59);
+}
+
+#link_bg img{
+    width: 200px;
+    height: 200px;
+}
+#link_bg_calender img{
+    width: 200px;
+    height: 180px;
+}
+#link_bg_upload img{
+    width: 200px;
+    height: 100%;
+}
+
+#font{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+    color: #222529;
+    font-style:normal;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#font_below{
+    font-size: 13px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Foot */
+
+.foot{
+    width: 100%;
+    height: 274px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+#foot_img{
+    width: 25%; 
+    height:270px;
+}
+
+@media only screen and (max-width: 600px ) {
+    #logo_khleang{
+        margin-left: 200px;
+    }
+    #foot_img{
+        margin-top: 20px;
+        width: 50%;
+        height:200px;
+    }
+    body{
+        height: 100%;
+    }
+    .box{
+        height: 1100px;
+    }
+    .row{
+        display: flex;
+    }
+    .column{
+        padding-left: 60px;
+        margin-bottom: 20px;
+    }
+    #link_bg img{
+        width: 200px;
+        height: 170px;
+    }
+    #link_bg_calender img{
+        width: 200px;
+        height: 130px;
+    }
+
+}
+
+

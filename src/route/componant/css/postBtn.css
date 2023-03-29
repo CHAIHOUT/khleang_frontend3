@@ -1,0 +1,67 @@
+main{
+    margin: 0;
+}
+/* .btn{
+    background-color: #BDC3C7;
+} */
+
+.post_btn{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 27px;
+    grid-gap: 20px;
+}
+
+/* CARD */
+.card{
+    width: 270px;
+    height: 360px;
+    background-color: #ECF0F1;
+}
+.card #card-head{
+    width: 100%;
+    height: 50%;
+}
+.card img{
+    width: 100%;
+    height: 100%;
+}
+
+.card-body #mid_btn{
+    margin: 0px 5px;
+}
+
+/* Model */
+
+.form-select{
+    margin-bottom: 10px;
+}
+
+#post_photo {     
+    width: 100%;
+    height: 110px;
+    background-color: #e6ebef;
+    display: flex;
+}
+#post_photo_box {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    margin: 5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#post_photo_box img {
+    width: 100%;
+    height: 100%;
+}
+#isload{
+    color: red;
+    margin-top: 40px;
+    padding: 0 5px;
+    font-size: 20px;
+}
