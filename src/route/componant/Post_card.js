@@ -180,5 +180,6 @@ export default function Post_card({item,deleteUI,updateUI}) {
               </Modal.Footer>
             </Modal>
         </div>
+        
     )
 }
