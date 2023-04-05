@@ -43,6 +43,11 @@ export default function Post_card({item,deleteUI,updateUI}) {
   const handleshow = () => setshow(true);
   const handleclose = () => setshow(false);
 
+  // Modal Delete
+  const[show2,setshow2]=useState(false);
+  const handleshow2 = () => setshow2(true);
+  const handleclose2 = () => setshow2(false);
+
   // Edit , IMG display
   const upload=(e)=>{
     e.preventDefault();
@@ -142,10 +147,10 @@ export default function Post_card({item,deleteUI,updateUI}) {
                 <p className="card-text">{item.description}</p>
                 <a onClick={DirectDetail} className="btn btn-outline-primary">Check</a>
                 <a href="#" id='mid_btn' onClick={handleshow} className="btn btn-outline-warning">Update</a>
-                <a href="#" className="btn btn-outline-danger" onClick={btn_delete}>Delete</a>
+                <a onClick={handleshow2} className="btn btn-outline-danger">Delete</a>
             </div>
 
-
+            {/* Update Modal */}
             <Modal show={show}>
               <Modal.Header>
                 <Modal.Title>
@@ -179,7 +184,25 @@ export default function Post_card({item,deleteUI,updateUI}) {
                 <Button onClick={e =>btn_edit(e)}>Save</Button>
               </Modal.Footer>
             </Modal>
+            
+
+            {/* Delete Modal */}
+            <Modal show={show2}>
+              <Modal.Header>
+                <Modal.Title>
+                  Delete
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                  <p>Are You Sure to Delete!</p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button onClick={handleclose2}>Close</Button>
+                <Button onClick={btn_delete}>Yes</Button>
+              </Modal.Footer>
+            </Modal>
         </div>
+        
         
     )
 }

@@ -76,7 +76,7 @@ export default function Register() {
     }
 
   return (
-    <div>
+    <div id='login_main'>
         <div id='login_title'><center><b>Register</b></center></div>
         <div id='login_form2'>
             <form>
@@ -96,7 +96,9 @@ export default function Register() {
                     <label for="Input3" class="form-label">Confirm password</label>
                     <input type="password" value={Cpassword} onChange={(e)=> setCpassword(e.target.value)} class="form-control" id="Input3" placeholder="Password" />
                 </div>
-                <center><button type="button" onClick={register} class="btn btn-light">Resgister</button></center>
+                <div id='login_body_btn'>
+                    <button type="button" id='resgister_btn' onClick={register} class="btn btn-light">Resgister</button>
+                </div>
                 {/* Toastify */}
                 <ToastContainer
                     position="top-right"

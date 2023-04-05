@@ -29,10 +29,10 @@ function Note_detail() {
 
   return (
     <main>
-      <div class="container">
+      <div class="containers">
             <div id="row_1">
                 <a onClick={back}><img id="left_img" src={left}></img></a>
-                <p id="detail_caption">{data.caption}</p>
+                <center><p id="detail_caption">{data.caption}</p></center>
             </div>
             <div id="row_2">
                 <p id="detail_img">Image :</p>

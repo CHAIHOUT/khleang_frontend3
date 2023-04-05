@@ -16,9 +16,9 @@ function note_display() {
             <a href="" className="icon">
                 <img src="./img/spp.png" id="img_head" />
             </a>
-            <a href="" className="icon2">
+            <Link to={'/Profile'} className="icon2">
                 <img src="./img/profile.png" id="img_head_profile" />
-            </a>
+            </Link>
             <a href="" id="logo_khleang">
                 <img src="./img/KhleangLogo.png" id="img_head" />
             </a>
@@ -36,13 +36,13 @@ function note_display() {
                     </Link>
                 </div>
 
-                {/* <div className="column">
-                    <a href="" id="link_bg_calender" >
+                <div className="column">
+                    <Link to={'/Calender'} id="link_bg_calender" >
                         <p id="font">Calender</p>
                         <p id="font_below">The place where you can set your date</p>
                         <img src="./img/c5.jpg" />
-                    </a>
-                </div> */}
+                    </Link>
+                </div>
 
                 <div className="column">
                     <Link to={'/Khleang_upload'}>

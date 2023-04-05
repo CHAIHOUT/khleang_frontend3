@@ -165,9 +165,9 @@ function Khleang_note() {
             <a href="" className="icon2">
                 <img src="./img/profile.png" id="img_head_profile" />
             </a>
-            <a href="" id="logo_khleang">
+            <Link to={"/Profile"} id="logo_khleang">
                 <img src="./img/KhleangLogo.png" id="img_head" />
-            </a>
+            </Link>
         </div>
 
         

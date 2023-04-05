@@ -9,6 +9,11 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// modal
+import { Button, Modal } from 'react-bootstrap';
+//spinners
+import PacmanLoader from "react-spinners/PacmanLoader";
+
 export default function Login() {
 
   //Redirt to Home use in Upload URL
@@ -41,6 +46,7 @@ export default function Login() {
         theme: "colored",
       });
     }else{
+      handleshow2();
       const data = {email,password};
       const res = await axios.post("http://127.0.0.1:8000/api/login",data);
       if(res.status == 200){
@@ -54,14 +60,20 @@ export default function Login() {
     }
   }
 
-  // test Logout
-  const Logout=()=>{
-    localStorage.clear();
-    alert("Log out Success");
-  }
+  // Loading modal
+  const[show2,setshow2]=useState(false);
+  const handleshow2 = () => setshow2(true);
+  const handleclose2 = () => setshow2(false);
+  // spinner
+  const [isloading,setisloading] = useState(false);
+  //CSS spiner
+  const override = {
+    width: "100px",
+    height: "50px",
+  };
 
   return (
-      <div>
+      <div id='login_main'>
         <div id='login_title'><center><b>Login</b></center></div>
         <div id='login_form'>
           <form>
@@ -73,7 +85,9 @@ export default function Login() {
               <label for="Input2" class="form-label">password</label>
               <input type="password" value={password} onChange={(e) => setpassword(e.target.value)} class="form-control" id="Input2" placeholder="Password" />
             </div>
-            <center><button type="button" onClick={Login} class="btn btn-light" id='login_btn'>LOGIN</button></center>
+            <div id='login_body_btn'>
+              <button type="button" onClick={Login} class="btn btn-light" id='login_btn'>LOGIN</button>
+            </div>
             {/* toastify */}
             <ToastContainer
                     position="top-right"
@@ -93,7 +107,13 @@ export default function Login() {
           <p>Don't have an Account ?</p>
           <a onClick={register}>Register</a>
         </div>
-        <button onClick={Logout}>Login</button>
+
+        {/* Loading Modal */}
+        <Modal show={show2}>
+          <Modal.Body>
+            <span>Loading Please Wait!</span><PacmanLoader color={'#360bf7'} cssOverride={override} loading={true} size={20} aria-label="Loading Spinner" data-testid="loader"/>
+          </Modal.Body>
+        </Modal>
       </div>
   )
 }
