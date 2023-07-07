@@ -3,6 +3,8 @@ import "./style/khleang_display.css";
 import "./style/khleang_note.css";
 import "./style/khleang_upload.css";
 
+import Head from './Head';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
@@ -214,23 +216,7 @@ export default function Khleang_upload() {
     <div className='main'>
 
         {/* head */}
-        <div className="head_display" >
-            <Link to={"/"}  className="icon">
-                <img src="./img/home.png" id="img_head" />
-            </Link>
-            <a href="" className="icon">
-                <img src="./img/setting.png" id="img_head" />
-            </a>
-            <a href="" className="icon">
-                <img src="./img/spp.png" id="img_head" />
-            </a>
-            <a href="" className="icon2">
-                <img src="./img/profile.png" id="img_head_profile" />
-            </a>
-            <a href="" id="logo_khleang">
-                <img src="./img/KhleangLogo.png" id="img_head" />
-            </a>
-        </div>
+        <Head/>
 
         {/* body */}
         <div className="note_body">
@@ -264,7 +250,7 @@ export default function Khleang_upload() {
                     <option value="video">video</option>
                 </select>
                 <div className="mb-3">
-                  <label for="ip_img" className="form-label">Upload Image :</label>
+                  <label for="ip_img" className="form-label">Upload Image : selected first Image Only</label>
                   <input onChange={e => upload(e)} className="form-control" type="file" id="ip_img" />
                   <div id='loading'>
                   {isloading?<ClipLoader color={'#360bf7'} cssOverride={override} loading={isloading} size={60} aria-label="Loading Spinner" data-testid="loader"/>
@@ -289,16 +275,6 @@ export default function Khleang_upload() {
 
         {/* foot */}
         <div className="upload_foot">
-            {/* {files &&
-                files.filter((item)=>{
-                    return search.toLowerCase() === ''
-                        ? item
-                        : item.caption.toLowerCase().includes(search);
-                })
-                .map((item)=>(
-                    <div id='f'><Upload_list key={item.name} file={item} deleteFile={deleteFileHandler}/></div>
-                ))
-            } */}
                 {Bir?Wed?Pho?
                         Allvideo.filter((item)=>{
                           return search.toLowerCase() === '' || search.toUpperCase() === ''

@@ -1,0 +1,119 @@
+#inbox_body{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* BOX */
+#inbox_box{
+    width: 98%;
+    height: 100px;
+    margin: 10px;
+    border-radius: 2px;
+    background-color: aliceblue;
+
+    display: flex;
+    flex-direction: row;
+}
+#inbox_box:hover{
+    border: 2px solid black;
+    opacity: 90%;
+}
+
+/* profile */
+#inbox_profile{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#inbox_profile img{
+    width: 80%;
+    height: 80%;
+    border-radius: 60%;
+}
+
+/* box body */
+#inbox_mid{
+    width: 75%;
+    height: 100%;
+}
+#inbox_mid #info{
+    width: 25%;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+#inbox_mid #info #info_box{
+    width: 100%;
+    height: 50%;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.info_box{
+    margin-bottom: 5px;
+}
+
+#inbox_mid #mes_box{
+    width: 75%;
+    height: 100%;
+    float: left;
+    overflow: auto;
+    padding: 10px;
+}
+#inbox_mid #mes_box p{
+    opacity: 70%;
+}
+
+/* Footer */
+#inbox_foot{
+    width: 15%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Modal */
+/* .modal.show .modal-dialog{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-dialog{
+    max-width: none;
+    margin: 0;
+}
+.modal-content{
+    width: 700px;
+    height: 500px;
+}
+.modal-header{
+    display: block;
+}
+
+.modal.fade .modal-dialog{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+#m_body{
+    width: 100%;
+    height: 200px;
+    overflow: auto;
+    resize: none;
+    outline: none;
+    border: none;
+}

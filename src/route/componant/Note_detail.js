@@ -6,9 +6,13 @@ import { useNavigate, useParams } from 'react-router-dom'
 import left from '../../img/left.svg';
 import axios from "axios";
 
+// react icon
+import {FcDownload} from 'react-icons/fc';
+
 function Note_detail() {
   const { id } = useParams();
   const [data,setdata] = useState([]);
+  const[type_file,settype_file] = useState("");
 
   useEffect(()=>{
       const Token = JSON.parse(localStorage.getItem("auth"));
@@ -18,8 +22,29 @@ function Note_detail() {
         }
       }).then((Data)=>{
         setdata(Data.data);
+        fun_checkfiletype(Data.data);
       });
   },[]);
+
+  const[a,seta] = useState(false);
+  const[b,setb] = useState(false);
+
+  // Check file type
+  const fun_checkfiletype=(item)=>{
+    if(item.type_file == "photo"){
+      seta(true)
+      setb(false)
+      settype_file(item.image);
+    }else if(item.type_file == 'file'){
+      seta(true)
+      setb(false)
+      settype_file("../../../img/file.webp");
+    }else if(item.type_file == 'video'){
+      seta(true);
+      setb(true)
+      settype_file("../../../img/videoIcon.png");
+    }
+  }
 
   // Turn back
   const navigate = useNavigate();
@@ -36,7 +61,14 @@ function Note_detail() {
             </div>
             <div id="row_2">
                 <p id="detail_img">Image :</p>
-                <img src={data.image}></img>
+                {
+                  a?b?<video id="vid" src={data.image} controls/>
+                    :<img src={type_file}></img>
+                  :<div></div>
+                }
+                <a id="download" href={data.image} target="_blank" downloaded><FcDownload size="35"/></a>
+                {/* <video id="vid" src={data.image} controls/> */}
+                {/* <img src={type_file}></img> */}
             </div>
             <div id="row_3">
                 <p id="text">description :</p>

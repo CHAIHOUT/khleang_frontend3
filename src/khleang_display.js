@@ -1,28 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import "./style/khleang_display.css";
+import axios from 'axios';
 
-function note_display() {
+import Head from './Head';
+
+function Note_display() {
+
+    useEffect(()=>{
+        fun_getDataBaseCalender()
+    },[])
+
+    // For Calender
+    const fun_getDataBaseCalender=()=>{
+        const Token = JSON.parse(localStorage.getItem("auth"));
+        let tempdata = [];
+        axios.get('http://127.0.0.1:8000/api/calender',{
+          headers:{
+              "Authorization" : "Bearer "+Token.token,
+          }
+        }).then((Data)=>{
+          tempdata = Data.data;
+          tempdata.map((item)=>{
+            item.date = new Date(item.date)
+          })
+          console.log(tempdata)
+          localStorage.setItem("$calendar_db", JSON.stringify(tempdata));
+        })
+      }
+
   return (
     <main>
-        <div className="head_display" >
-            <a href="" className="icon">
-                <img src="./img/home.png" id="img_head" />
-            </a>
-            <a href="" className="icon">
-                <img src="./img/setting.png" id="img_head" />
-            </a>
-            <a href="" className="icon">
-                <img src="./img/spp.png" id="img_head" />
-            </a>
-            <Link to={'/Profile'} className="icon2">
-                <img src="./img/profile.png" id="img_head_profile" />
-            </Link>
-            <a href="" id="logo_khleang">
-                <img src="./img/KhleangLogo.png" id="img_head" />
-            </a>
-        </div>
+        <Head/>
 
         <div className="box">
             <div className="row">
@@ -54,14 +64,6 @@ function note_display() {
                     </Link>
                 </div> 
 
-                {/* <div className="column">
-                    <a href="" id="link_bg_soon">
-                        <p id="font">Coming Soon</p>
-                        <p id="font_below"></p>
-                        <img src="./img/soon2.png" />
-                    </a>
-                </div> */}
-
             </div>
         </div>
 
@@ -73,4 +75,4 @@ function note_display() {
   )
 }
 
-export default note_display
+export default Note_display

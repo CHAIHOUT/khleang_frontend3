@@ -19,9 +19,8 @@ function Day({day, date}) {
             <div className="task-day">       
                 <div className="tasks">
                     {day.tasks.map(task=>(
-                        <Task key={task.id} task={task} style={getStyle(task.color)}/>
+                        <Task key={task.id2} task={task} style={getStyle(task.color)}/>
                     ))}
-                                    
                 </div>
                 <h3> {day.date.getDate()} </h3>
             </div>   

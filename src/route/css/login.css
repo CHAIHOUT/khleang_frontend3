@@ -1,7 +1,7 @@
 #login_main{
     background-color: white;
     border-radius: 10px;
-    height: 500px;
+    height: 570px;
 }
 #login_body{
     width: 100%;
@@ -76,4 +76,26 @@
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+}
+
+/* modal */
+#spann{
+    float: left;
+    margin: 10px;
+}
+
+@media only screen and (max-width: 600px ) {
+
+    /* BOX */
+    #login_body{
+        width: 100%;
+    }
+
+    /* login */
+    #login_main{
+        width: 100%;
+    }
+
+    /* Register */
+    
 }

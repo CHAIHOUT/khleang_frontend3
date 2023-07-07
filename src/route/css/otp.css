@@ -1,0 +1,42 @@
+#login_main2{
+    background-color: white;
+    border-radius: 10px;
+    height: 370px;
+    padding: 20px;
+}
+
+#otp_field{
+    width: 100%;
+    height: 150px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#otp_field button{
+    margin-top: 20px;
+}
+
+#reset_otp{
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#R_phonenumber{
+    width: 90%;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+#ph_label{
+    font-size: 12px;
+    margin: 10px 0 5px 0;
+}

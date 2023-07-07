@@ -114,4 +114,32 @@
     height: 100%;
 }
 
+@media only screen and (max-width: 600px ) {
+    .khleang_search{
+        width: 50%;
+        height: 100px;
+    }
+    .khleang_form{
+        width: 100%;
+        height: 100%;
+        margin: 15px;
+    }
+    .khleang_label{
+        width: 30%;
+    }
+    .khleang_ip{
+        width: 70%;
+        margin: 0;
+    }
 
+
+    #note_add{
+        width: 50%;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

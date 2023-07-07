@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './css/postBtn.css';
+import './css/post_card.css';
 import axios from 'axios';
 import { Button, Modal } from 'react-bootstrap';
 import { Link, redirect , useNavigate } from "react-router-dom";
@@ -18,6 +19,8 @@ export default function Post_card({item,deleteUI,updateUI}) {
   const[img,setimg] = useState([item.image]);
   const[description,setdescription] = useState(item.description);
   const [validationInput,setvalidationInput] = useState(0);
+
+  const[type_file,settype_file] = useState("");
 
 //Delete
   const btn_delete=()=>{
@@ -77,7 +80,7 @@ export default function Post_card({item,deleteUI,updateUI}) {
   }
   
   useEffect(()=>{
-    // getData();
+    fun_checkfiletype();
     if(!getUrl){
         listAll(imageListRef).then((response)=>{
             response.items.forEach((item)=>{
@@ -95,11 +98,18 @@ export default function Post_card({item,deleteUI,updateUI}) {
     let image = "";
 
     // convert img array to string
-    img.map((val,i)=>{
+    img.map((val,i)=>{        //loop yk rub jg kroy
         // setimage(val);
         image = val;
+        if(item.type_file == "photo"){    // Update Image tmey {internal}
+          settype_file(val);
+        }else if(item.type_file == 'file'){
+          settype_file("../../../img/file.webp");
+        }else if(item.type_file == 'video'){
+          settype_file("../../../img/videoIcon.png");
+        }
     });
-    const id = item.id;
+      const id = item.id;
       const data = {id,caption,image,description};
       const Token = JSON.parse(localStorage.getItem("auth"));
 
@@ -137,17 +147,32 @@ export default function Post_card({item,deleteUI,updateUI}) {
     navigate('/khleang_note_detail/'+item.id);
   }
 
+
+  // Check file type
+  const fun_checkfiletype=()=>{
+    if(item.type_file == "photo"){
+      settype_file(item.image);
+    }else if(item.type_file == 'file'){
+      settype_file("../../../img/file.webp");
+    }else if(item.type_file == 'video'){
+      settype_file("../../../img/videoIcon.png");
+    }
+  }
+
+
     return (
         <div className="card">
             <div id='card-head'>
-                <img src={item.image} />
+                <img src={type_file} />
             </div>
             <div className="card-body">
                 <h5 className="card-title">{item.caption}</h5>
                 <p className="card-text">{item.description}</p>
-                <a onClick={DirectDetail} className="btn btn-outline-primary">Check</a>
-                <a href="#" id='mid_btn' onClick={handleshow} className="btn btn-outline-warning">Update</a>
-                <a onClick={handleshow2} className="btn btn-outline-danger">Delete</a>
+                <div id='card_btn'>
+                  <a onClick={DirectDetail} className="btn btn-outline-primary">Check</a>
+                  <a href="#" id='mid_btn' onClick={handleshow} className="btn btn-outline-warning">Update</a>
+                  <a onClick={handleshow2} className="btn btn-outline-danger">Delete</a>
+                </div>
             </div>
 
             {/* Update Modal */}
@@ -168,6 +193,13 @@ export default function Post_card({item,deleteUI,updateUI}) {
                   <div id="post_photo">
                         {isloading?<ClipLoader color={'#360bf7'} cssOverride={override} loading={isloading} size={60} aria-label="Loading Spinner" data-testid="loader"/>
                         : img.map((url)=>{
+
+                            if(item.type_file == 'file'){
+                              url = '../../../../img/file.webp';
+                            }else if(item.type_file == 'video'){
+                              url = '../../../../img/videoIcon.png';
+                            }
+
                             return <div key={url} id="post_photo_box">
                                     <img src={url} />
                                    </div>

@@ -21,7 +21,7 @@ function Calendar() {
           {names.map(name=><h5 key={name}>{name}</h5>)}
         </div>
         <div className="calendar">
-          {days.map(day=><Day key={day.date} day={day} date={date} setDate={setDate} />)}     
+          {days.map(day=><Day key={day.date} day={day} date={date} setDate={setDate} />)}    
         </div>
     </div>
   );

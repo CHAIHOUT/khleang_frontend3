@@ -54,7 +54,7 @@ function TaskForm() {
   };
 
   const _deleteTask = ()=> {
-    deleteTask(task.id);
+    deleteTask(task.id2);
     setDate(date);
     closeModal();
     setError(false);
@@ -93,7 +93,7 @@ function TaskForm() {
           <button className="button button-red" onClick={closeModal}>
             Cancel
           </button>
-          {task && task.id ? (
+          {task && task.id2 ? (
             <button
               className="button button-orange"
               onClick={_deleteTask}

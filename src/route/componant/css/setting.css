@@ -1,0 +1,89 @@
+#setting_main{
+    width: 100%;
+    height: 745px;
+}
+/* LEFT */
+#setting_left{
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: #3498DB;
+}
+
+#setting_back{
+    width: 100%;
+    height: 70px;
+}
+#setting_back_img{
+    float: left;
+}
+#setting_back_img img{
+    width: 30px;
+    height: 30px;
+    margin: 18px 7px;
+}
+#setting_back_img #setting_setting{
+    margin-left: 20px;
+}
+
+#setting_link{
+    width: 100%;
+    height: 60px;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#setting_link:hover{
+    background-color: rgba(42, 41, 45, 0.037);
+    border-left: 3px solid rgba(44, 44, 46, 0.551);
+}
+#setting_link img{
+    width: 30px;
+    height: 30px;
+    margin: 18px 7px;
+}
+
+#setting_logout{
+    width: 100%;
+    height: 70px;
+    margin-top: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Right */
+#setting_right{
+    width: 80%;
+    height: 745px;
+    float: left;
+    background-color: #ECF0F1;
+    display: flex;
+    flex-direction: column;
+}
+#setting_box{
+    width: 96%;
+    height: 320px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+}
+
+@media only screen and (max-width: 600px ) {
+
+    /* left */
+    #s_b{
+        font-size: 10px;
+    }
+
+    /* right */
+    #setting_main{
+        height: 844px;
+    }
+    #setting_box{
+        margin: 0;
+    }
+}

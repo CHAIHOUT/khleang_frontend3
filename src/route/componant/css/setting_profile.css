@@ -1,0 +1,77 @@
+#setting_profile{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+/* head */
+#setting_profile_head{
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+}
+#setting_profile_head p{
+    float: left;
+}
+#setting_profile_head a{
+    float: right;
+    color: #0d2cf9;
+}
+
+/* body */
+#setting_profile_body{
+    width: 100%;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 8px;
+}
+#setting_profile_pic{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 30px;
+}
+#sp_img{
+    width: 100%;
+    height: 100%;
+    float: left;
+    border-radius: 50%;
+}
+
+#sp_name{
+    width: 50%;
+    height: 35px;
+    float: left;
+    margin: 3px;
+}
+#sp_name p{
+    float: left;
+}
+#sp_name_box{
+    width: 225px;
+    height: 30px;
+    float: left;
+    padding: 2px;
+    margin-left: 5px;
+    border: 2px solid black;
+}
+
+@media only screen and (max-width: 600px ) {
+    #sp_name_box{
+        font-size: 10px;
+    }
+    #sp_p{
+        width: 20%;
+        font-size: 10px;
+    }
+    #sp_name_box{
+        width: 80%;
+        margin: 0;
+    }
+    #sp_name{
+        width: 100%;
+    }
+}

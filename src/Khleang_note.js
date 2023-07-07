@@ -5,7 +5,8 @@ import Card from './route/componant/Post_card';
 import { Button, Modal } from 'react-bootstrap';
 
 import { Link, useNavigate } from "react-router-dom";
-import Axios from "axios";
+
+import Head from './Head';
 
 //firebase
 import { storage } from './firebase';
@@ -16,14 +17,20 @@ import { uploadBytes} from "@firebase/storage";
 import ClipLoader from "react-spinners/ClipLoader";
 import axios from 'axios';
 
+// toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Khleang_note() {
     
   const[caption, setcaption] = useState('');
+  const [select_type,setselect_type] = useState('');
   const[img,setimg] = useState([]);
   const[description,setdescription] = useState('');
   const[getAllData,setgetAllData] = useState([]);
   const [validationInput,setvalidationInput] = useState(0);
+
 
   // firebase   
   const [isloading,setisloading] = useState(false);
@@ -75,7 +82,7 @@ function Khleang_note() {
 
   //delete filter UI  (no window reload)
   const deleteUI=(id)=>{
-    setgetAllData(getAllData.filter(getAllData => getAllData.id !== id))
+    setgetAllData(getAllData.filter(getAllData => getAllData.id !== id));
   }
 
   //Update UI  (no window reload)
@@ -111,8 +118,8 @@ function Khleang_note() {
                 // setimage(val);
                 image = val;
             });
-
-                const data = {caption,description,image};
+                const type_file = select_type;
+                const data = {caption,description,image,type_file};
                 const Token = JSON.parse(localStorage.getItem("auth"));
     
                 axios.post('http://127.0.0.1:8000/api/note',data,{
@@ -127,10 +134,19 @@ function Khleang_note() {
                     setimg([]);
                     setvalidationInput(0);
                     handleclose();
-                })
+                });
 
         }else{
-            alert("Please Insert All form");
+          toast.warn('Please wait for loading file upload...!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         }
         
       }
@@ -140,7 +156,9 @@ function Khleang_note() {
         handleclose();
         setcaption("");
         setdescription("");
+        setselect_type("");
         setimg([]);
+        setisloading(false);
         setvalidationInput(0);
     }
 
@@ -152,24 +170,7 @@ function Khleang_note() {
 
   return (
     <main>
-        <div className="head_display" >
-            <Link to={"/"}  className="icon">
-                <img src="./img/home.png" id="img_head" />
-            </Link>
-            <a href="" className="icon">
-                <img src="./img/setting.png" id="img_head" />
-            </a>
-            <a href="" className="icon">
-                <img src="./img/spp.png" id="img_head" />
-            </a>
-            <a href="" className="icon2">
-                <img src="./img/profile.png" id="img_head_profile" />
-            </a>
-            <Link to={"/Profile"} id="logo_khleang">
-                <img src="./img/KhleangLogo.png" id="img_head" />
-            </Link>
-        </div>
-
+        <Head/>
         
         <div className="note_body">
 
@@ -201,13 +202,40 @@ function Khleang_note() {
                   <input value={caption} onChange={e => setcaption(e.target.value)} type="text" className="form-control" id="ip_caption" />
                 </div>
                 <div className="mb-3">
-                  <label for="ip_img" className="form-label">Upload Image :</label>
+                  <label for="ip_img" className="form-label">Upload Image : Please Select spacific file type</label>
+                  <select class="form-select" value={select_type} onChange={e => setselect_type(e.target.value)} aria-label="Default select example">
+                    <option selected disabled value="">Select type of file</option>
+                    <option value="file">file</option>
+                    <option value="photo">photo</option>
+                    <option value="video">video</option>
+                  </select>
                   <input onChange={e => upload(e)} className="form-control" type="file" id="ip_img" />
                   <div id="post_photo">
                         {isloading?<ClipLoader color={'#360bf7'} cssOverride={override} loading={isloading} size={60} aria-label="Loading Spinner" data-testid="loader"/>
                         : img.map((url)=>{
+                            if(select_type == ""){
+                              toast.warn('Please Select File type Before upload...!', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "colored",
+                              });
+                              btn_close();
+                            }
+                            else if(select_type == 'file'){
+                              url = '../../img/file.webp';
+                            }else if(select_type == 'video'){
+                              url = '../../img/videoIcon.png';
+                            }
+
                             return <div key={url} id="post_photo_box">
-                                    <img src={url} />
+                                    <img 
+                                      src={url} 
+                                    />
                                    </div>
                         })}
                     </div>
@@ -234,10 +262,25 @@ function Khleang_note() {
                         : item.caption.toLowerCase().includes(search) || item.caption.toUpperCase().includes(search)
                 })
                 .map((item)=>{
-                   return <div id='np'><Card item={item} deleteUI={deleteUI} updateUI={updateUI}/></div>
+                   return <div id='np'><Card key={item.id} item={item} deleteUI={deleteUI} updateUI={updateUI}/></div>
                 })
             }
         </div>
+
+            {/* toastify CSS*/}
+            <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+            />
+
     </main>
   )
 }

@@ -1,0 +1,69 @@
+#admin_body{
+    width: 100%;
+    height: 745px;
+}
+#admin_body_left{
+    width: 6%;
+    float: left;
+    height: 100%;
+    background-color: black;
+}
+#admin_body_right{
+    width: 94%;
+    float: left;
+    height: 100%;
+    /* background-color: yellow; */
+}
+
+
+#left_box{
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#left_box #left_box_logo{
+    width: 100%;
+    height: 100%;
+}
+
+
+#left_box_logout{
+    width: 100%;
+    height: 70px;
+    margin-top: 420px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Admin Home */
+/* link inbox color */
+#a_inbox{
+    color: red;
+    text-decoration: none;
+}
+.a_margin{
+    margin-right: 8px;
+}
+
+@media only screen and (max-width: 600px ) {
+    #admin_body{
+        width: 100%;
+    }
+    #admin_body_left{
+        width: 10%;
+    }
+    #admin_body_right{
+        width: 90%;
+    }
+    #admin_left_btn{
+        width: 100%;
+        font-size: 10px;
+        padding: 0;
+        height: 50%;
+    }
+}
